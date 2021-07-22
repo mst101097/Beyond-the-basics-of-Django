@@ -27,6 +27,3 @@ class CommercialModelForm(forms.ModelForm):
 	class Meta:
 		model = Commercial
 		fields = '__all__'
-
-
-

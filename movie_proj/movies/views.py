@@ -3,9 +3,10 @@ from django.urls import reverse_lazy
 from django.views.generic import FormView
 from .models import Flim , Commercial
 from .forms import MovieSelectForm,FilmModelForm,CommercialModelForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
-class MovieSelectFormView(FormView):
+class MovieSelectFormView(LoginRequiredMixin,FormView):
 	form_class = MovieSelectForm
 	template_name = 'movies/main.html'
 	success_url = reverse_lazy('movies:add-movie-view')
@@ -17,7 +18,7 @@ class MovieSelectFormView(FormView):
 
 
 
-class AddMovieFormView(FormView):
+class AddMovieFormView(LoginRequiredMixin,FormView):
 	template_name ='movies/add.html'
 	success_url =reverse_lazy('homeView')
 

@@ -15,13 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path , include
-from .views import homeView
+from .views import homeView,login_view,logout_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('homeView/', homeView, name = 'homeView'),
-    path('',include('movies.urls')),
+    path('', homeView, name = 'homeView'),
+    path('movie/',include('movies.urls')),
+    path('login/',login_view, name='login'),
+    path('logout/',logout_view, name='logout'),
+
 ]
+
 
 admin.site.site_header = "Movies Administrations"
 admin.site.index_title = "Mange Movie Site"

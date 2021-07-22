@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'actors.apps.ActorsConfig',
     'movies.apps.MoviesConfig',
 
-    
+
 ]
 
 MIDDLEWARE = [
@@ -107,6 +107,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = 'user.CustomUser'
+LOGIN_URL = "login"
+LOGOUT_REDIRECT_URL = '/admin/'
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
